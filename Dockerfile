@@ -2,19 +2,31 @@ FROM ubuntu:18.04
 #FROM ibmjava:8-sdk
 MAINTAINER ZCubeKr <zcube@zcube.kr>
 
+# # wine install
+# RUN dpkg --add-architecture i386 && \
+#     apt-get update -y && \
+#     apt-get install -y software-properties-common python-software-properties wget apt-transport-https && \
+#     wget https://dl.winehq.org/wine-builds/Release.key && \
+#     apt-key add Release.key && \
+#     apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/ && \
+#     apt-get update -y && \
+#     apt-get install -y cabextract winehq-stable xvfb wget python-pip  curl  &&\
+#     pip2 install supervisor && \
+#     pip2 install --upgrade pip && \
+#     rm -rf /var/lib/apt/lists/* && \
+#     apt-get autoclean -y
+
+
 # wine install
 RUN dpkg --add-architecture i386 && \
     apt-get update -y && \
     apt-get install -y software-properties-common python-software-properties wget apt-transport-https && \
-    wget https://dl.winehq.org/wine-builds/Release.key && \
-    apt-key add Release.key && \
-    apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/ && \
-    apt-get update -y && \
-    apt-get install -y cabextract winehq-stable xvfb wget python-pip  curl  &&\
+    apt-get install -y cabextract wine32 xvfb wget python-pip  curl  &&\
     pip2 install supervisor && \
     pip2 install --upgrade pip && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get autoclean -y
+
 
 RUN useradd -u 1001 -d /home/wine -m -s /bin/bash wine
 ENV HOME /home/wine
