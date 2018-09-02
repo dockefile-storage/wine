@@ -21,7 +21,9 @@ MAINTAINER ZCubeKr <zcube@zcube.kr>
 RUN dpkg --add-architecture i386 && \
     apt-get update -y && \
     apt-get install -y cabextract wine32 xvfb wget curl python-pip &&\
+    pip2 install supervisor && \
     pip2 install --upgrade pip && \
+    rm -rf /var/lib/apt/lists/* && \
     apt-get autoclean -y
 
 
