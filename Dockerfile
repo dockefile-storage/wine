@@ -10,7 +10,7 @@ RUN dpkg --add-architecture i386 && \
     apt-key add Release.key && \
     apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/ && \
     apt-get update -y && \
-    apt-get install -y cabextract redis-server winehq-stable xvfb wget  python-pip net-tools curl  &&\
+    apt-get install -y cabextract winehq-stable xvfb wget python-pip  curl  &&\
     pip2 install supervisor && \
     pip2 install --upgrade pip && \
     rm -rf /var/lib/apt/lists/* && \
@@ -22,20 +22,20 @@ ENV WINEPREFIX /home/wine/.wine
 ENV WINEDEBUG -all
 ENV WINEARCH win32
 
-#RUN wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks && \
-#    chmod +x winetricks && \
-#    rm -rf /tmp/.wine* && \
-#    su -p -l wine -c winecfg && \
-#    su -p -l wine -c 'xvfb-run -a ./winetricks -q mfc40' && \
-#    su -p -l wine -c 'xvfb-run -a ./winetricks -q mfc42' && \
-#    su -p -l wine -c 'xvfb-run -a ./winetricks -q msvcirt' && \
-#    su -p -l wine -c 'xvfb-run -a ./winetricks -q vcrun6' && \
-#    su -p -l wine -c 'xvfb-run -a ./winetricks -q vcrun2010' && \
-#    su -p -l wine -c 'xvfb-run -a ./winetricks -q vcrun2013' && \
-#    su -p -l wine -c 'xvfb-run -a ./winetricks -q vcrun2015' && \
-#    rm winetricks && \
-#    rm -rf /tmp/.wine*
-#
+RUN wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks && \
+    chmod +x winetricks && \
+    rm -rf /tmp/.wine* && \
+    su -p -l wine -c winecfg && \
+    su -p -l wine -c 'xvfb-run -a ./winetricks -q mfc40' && \
+    su -p -l wine -c 'xvfb-run -a ./winetricks -q mfc42' && \
+    su -p -l wine -c 'xvfb-run -a ./winetricks -q msvcirt' && \
+    su -p -l wine -c 'xvfb-run -a ./winetricks -q vcrun6' && \
+    su -p -l wine -c 'xvfb-run -a ./winetricks -q vcrun2010' && \
+    su -p -l wine -c 'xvfb-run -a ./winetricks -q vcrun2013' && \
+    su -p -l wine -c 'xvfb-run -a ./winetricks -q vcrun2015' && \
+    rm winetricks && \
+    rm -rf /tmp/.wine*
+
 # RUN wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks && \
 #     chmod +x winetricks && \
 #     rm -rf /tmp/.wine* && \
