@@ -20,10 +20,7 @@ MAINTAINER ZCubeKr <zcube@zcube.kr>
 # wine install
 RUN dpkg --add-architecture i386 && \
     apt-get update -y && \
-    apt-get install -y cabextract wine32 xvfb wget python-pip  curl  &&\
-    pip2 install supervisor && \
-    pip2 install --upgrade pip && \
-    rm -rf /var/lib/apt/lists/* && \
+    apt-get install -y cabextract wine32 xvfb wget curl  &&\
     apt-get autoclean -y
 
 
@@ -32,7 +29,6 @@ ENV HOME /home/wine
 ENV WINEPREFIX /home/wine/.wine
 ENV WINEDEBUG -all
 ENV WINEARCH win32
-
 
 RUN wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks && \
     chmod +x winetricks && \
