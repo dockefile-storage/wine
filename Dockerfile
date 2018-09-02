@@ -10,10 +10,7 @@ RUN dpkg --add-architecture i386 && \
     apt-key add Release.key && \
     apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/ && \
     apt-get update -y && \
-    apt-get install -y cabextract redis-server winehq-stable xvfb wget psmisc  npm python-pip curl &&\
-    pip2 install supervisor && \
-    pip2 install --upgrade pip && \
-    pip3 install --upgrade pip && \
+    apt-get install -y cabextract redis-server winehq-stable xvfb wget curl &&\
     rm -rf /var/lib/apt/lists/* && \
     apt-get autoclean -y
 
@@ -60,7 +57,8 @@ RUN wget https://www.python.org/ftp/python/2.7.13/python-2.7.13.msi &&\
 RUN apt-get purge -y software-properties-common && \
     apt-get autoclean -y
 
-ENV PYTHOHN_LIBRARIES tornado zmq redis sqlalchemy jinja2 PyMySQL pika 
+#ENV PYTHOHN_LIBRARIES tornado zmq redis sqlalchemy jinja2 PyMySQL pika 
+ENV PYTHOHN_LIBRARIES zmq  
 # rethinkdb
 
 # python packages
