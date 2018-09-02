@@ -22,20 +22,20 @@ ENV WINEPREFIX /home/wine/.wine
 ENV WINEDEBUG -all
 ENV WINEARCH win32
 
-RUN wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks && \
-    chmod +x winetricks && \
-    rm -rf /tmp/.wine* && \
-    su -p -l wine -c winecfg && \
-    su -p -l wine -c 'xvfb-run -a ./winetricks -q mfc40' && \
-    su -p -l wine -c 'xvfb-run -a ./winetricks -q mfc42' && \
-    su -p -l wine -c 'xvfb-run -a ./winetricks -q msvcirt' && \
-    su -p -l wine -c 'xvfb-run -a ./winetricks -q vcrun6' && \
-    su -p -l wine -c 'xvfb-run -a ./winetricks -q vcrun2010' && \
-    su -p -l wine -c 'xvfb-run -a ./winetricks -q vcrun2013' && \
-    su -p -l wine -c 'xvfb-run -a ./winetricks -q vcrun2015' && \
-    rm winetricks && \
-    rm -rf /tmp/.wine*
-
+#RUN wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks && \
+#    chmod +x winetricks && \
+#    rm -rf /tmp/.wine* && \
+#    su -p -l wine -c winecfg && \
+#    su -p -l wine -c 'xvfb-run -a ./winetricks -q mfc40' && \
+#    su -p -l wine -c 'xvfb-run -a ./winetricks -q mfc42' && \
+#    su -p -l wine -c 'xvfb-run -a ./winetricks -q msvcirt' && \
+#    su -p -l wine -c 'xvfb-run -a ./winetricks -q vcrun6' && \
+#    su -p -l wine -c 'xvfb-run -a ./winetricks -q vcrun2010' && \
+#    su -p -l wine -c 'xvfb-run -a ./winetricks -q vcrun2013' && \
+#    su -p -l wine -c 'xvfb-run -a ./winetricks -q vcrun2015' && \
+#    rm winetricks && \
+#    rm -rf /tmp/.wine*
+#
 # RUN wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks && \
 #     chmod +x winetricks && \
 #     rm -rf /tmp/.wine* && \
