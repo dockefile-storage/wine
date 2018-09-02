@@ -20,7 +20,8 @@ MAINTAINER ZCubeKr <zcube@zcube.kr>
 # wine install
 RUN dpkg --add-architecture i386 && \
     apt-get update -y && \
-    apt-get install -y cabextract wine32 xvfb wget curl  &&\
+    apt-get install -y cabextract wine32 xvfb wget curl python-pip &&\
+    pip2 install --upgrade pip && \
     apt-get autoclean -y
 
 
