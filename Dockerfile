@@ -39,6 +39,7 @@ RUN wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/wine
     rm -rf /tmp/.wine* && \
     su -p -l wine -c winecfg && \
     su -p -l wine -c 'xvfb-run -a ./winetricks -q msvcirt' && \
+    su -p -l wine -c 'xvfb-run -a ./winetricks -q vcrun6' && \
     rm winetricks && \
     rm -rf /tmp/.wine*
 
